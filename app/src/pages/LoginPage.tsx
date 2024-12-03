@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthService } from '../AuthService';
+import './LoginPage.scss'
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>('');
