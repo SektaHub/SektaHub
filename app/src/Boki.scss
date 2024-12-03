@@ -19,20 +19,32 @@
 }
 
 .navbar {
-    text-align: center;
-    padding: 1vh;
-    margin: 2vh;
     display: flex;
-    justify-content: baseline;
     align-items: center;
+    padding: 2vh;
+    margin: 2vh;
+    justify-content: center; /* Center the entire content */
+    position: relative; /* For absolute positioning */
 
-    .logo{
+    .logo-container {
+        position: absolute;
+        left: 2vh; /* Adjust as needed */
+        top: 0.2vh;
         width: 10rem;
         height: auto;
     }
 
+    .logo {
+        width: 100%;
+        height: auto;
+    }
+
+    .nav-elements {
+        display: flex;
+        gap: 4rem;
+    }
+
     a {
-        margin-left: 4rem;
         color: wheat;
         text-decoration: none;
         font-size: 1.5rem;
