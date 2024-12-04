@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../axiosConfig';
+import ReactMarkdown from 'react-markdown';  // Import react-markdown
 import './NewsArticle.scss';
 
 // Define interface for a single blog post
@@ -45,10 +46,14 @@ const NewsArticle: React.FC = () => {
     <div className="news-article">
       <h1>{article.title}</h1>
       <img src={article.imageUrl || 'https://via.placeholder.com/600'} alt={article.title} />
-      <p>{article.content}</p>
+      
+      {/* Render content as markdown using ReactMarkdown */}
+      <ReactMarkdown>{article.content}</ReactMarkdown>
+      
       <div className="meta">
         <span>By {article.publisherName}</span> | <span>{new Date(article.dateCreated).toLocaleDateString()}</span>
       </div>
+      
       <div className="tags">
         {article.tags.split(',').map((tag) => (
           <span key={tag} className="tag">
