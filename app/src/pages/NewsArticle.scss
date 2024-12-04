@@ -1,0 +1,40 @@
+.news-article {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+  
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+  
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+  
+    .meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+  
+    .tags {
+      .tag {
+        display: inline-block;
+        background: #eee;
+        color: #555;
+        padding: 0.3rem 0.5rem;
+        margin-right: 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  

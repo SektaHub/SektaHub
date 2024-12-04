@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import Layout from "./layout/Layout";
 import NewsPage from "./pages/NewsPage";
 import LoginPage from "./pages/LoginPage";
+import NewsArticle from './pages/NewsArticle';
 import "./Boki.scss";
 
 // Protected Route Component
@@ -34,6 +35,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="/news" element={<NewsPage />} />
+            <Route path="/news/:id" element={<NewsArticle />} />
           </Route>
         </Route>
         {/* Redirect to home or login if no match */}

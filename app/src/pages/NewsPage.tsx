@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../axiosConfig';
+import './NewsPage.scss';
 
 // Define interface for blog post
 interface BlogPost {
-  id: number;
+  id: string;
   title: string;
   content: string;
+  imageUrl: string; // Add imageUrl property
+  tags: string;
+  publisherName: string;
+  dateCreated: string;
 }
 
 const NewsPage: React.FC = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -30,20 +37,29 @@ const NewsPage: React.FC = () => {
     fetchBlogPosts();
   }, []);
 
-  if (loading) return <div>Loading blog posts...</div>;
+  const handlePostClick = (id: string) => {
+    navigate(`/news/${id}`);
+  };
+
+  if (loading) return <div>Loading News...</div>;
   if (error) return <div>{error}</div>;
 
   return (
     <div className="news-page">
-      <h1>Blog Posts</h1>
+      <h1>News:</h1>
       {blogPosts.length === 0 ? (
-        <p>No blog posts available.</p>
+        <p>No news available.</p>
       ) : (
         <div className="blog-posts-container">
           {blogPosts.map((post) => (
-            <div key={post.id} className="blog-post">
+            <div
+              key={post.id}
+              className="blog-post"
+              onClick={() => handlePostClick(post.id)}
+            >
+              <img src={post.imageUrl || 'https://via.placeholder.com/300'} alt={post.title} />
               <h2>{post.title}</h2>
-              <p>{post.content}</p>
+              <p>{post.content.substring(0, 100)}...</p>
             </div>
           ))}
         </div>
