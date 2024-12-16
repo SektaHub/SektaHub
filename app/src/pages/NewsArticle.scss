@@ -1,40 +1,112 @@
 .news-article {
-    padding: 2rem;
-    font-family: Arial, sans-serif;
-    color: #333;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background-color: #181818; // Black background for the article
+  color: #d4af37; // Gold text color for the article
+  border-radius: 0.75rem;
   
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-  
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 1rem;
-    }
-  
-    p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-  
-    .meta {
-      font-size: 0.9rem;
-      color: #777;
-      margin-bottom: 1rem;
-    }
-  
-    .tags {
-      .tag {
-        display: inline-block;
-        background: #eee;
-        color: #555;
-        padding: 0.3rem 0.5rem;
-        margin-right: 0.5rem;
-        border-radius: 4px;
-        font-size: 0.8rem;
-      }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffd700; // Bright gold for the title
+    border-bottom: 2px solid #ffd700; // Gold underline for the title
+    padding-bottom: 0.5rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border: 2px solid #ffd700; // Gold border for images
+    border-radius: 8px;
+  }
+
+  p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #f0e68c; // Light gold for text
+  }
+
+  .meta {
+    font-size: 0.9rem;
+    color: #b8860b; // Muted gold for meta info
+    margin-bottom: 1rem;
+
+    span {
+      margin-right: 1rem;
     }
   }
-  
+
+  .tags {
+    margin-top: 1rem;
+
+    .tag {
+      display: inline-block;
+      background: #ffd700; // Gold background for tags
+      color: #000; // Black text for contrast
+      padding: 0.3rem 0.5rem;
+      margin-right: 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+  }
+
+  // Styling for markdown content
+  .markdown-body {
+    line-height: 1.8;
+    color: #f0e68c; // Light gold for text
+    font-size: 1rem;
+
+    h2, h3, h4, h5, h6 {
+      color: #ffd700; // Bright gold for subheadings
+      margin: 20px 0 10px;
+      border-bottom: 1px solid #ffd700; // Gold underline for headings
+      padding-bottom: 0.5rem;
+    }
+
+    a {
+      color: #ffdf00; // Shiny gold for links
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 1rem;
+
+      li {
+        margin-bottom: 0.5rem;
+        color: #f0e68c;
+      }
+    }
+
+    blockquote {
+      margin: 20px 0;
+      padding: 10px 20px;
+      border-left: 5px solid #ffd700; // Gold border for blockquotes
+      background-color: #333; // Dark background for contrast
+      font-style: italic;
+      color: #f0e68c; // Light gold for blockquote text
+    }
+
+    code {
+      background-color: #444; // Dark background for inline code
+      color: #ffd700; // Gold text for inline code
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #222; // Blackish background for code blocks
+      color: #ffd700; // Gold text for code blocks
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      border: 1px solid #ffd700; // Gold border for code blocks
+    }
+  }
+}

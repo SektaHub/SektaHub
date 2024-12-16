@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../axiosConfig';
-import ReactMarkdown from 'react-markdown';  // Import react-markdown
+import api, {API_BASE_URL} from '../axiosConfig';
+import ReactMarkdown from 'react-markdown';
 import './NewsArticle.scss';
 
 // Define interface for a single blog post
@@ -9,8 +9,8 @@ interface BlogPost {
   id: string;
   title: string;
   content: string;
-  imageUrl: string;
-  tags: string;
+  thumbnailId: string;
+  tags: string[]; // Updated to ensure tags is an array
   publisherName: string;
   dateCreated: string;
 }
@@ -44,20 +44,27 @@ const NewsArticle: React.FC = () => {
 
   return (
     <div className="news-article">
-      <h1>{article.title}</h1>
-      <img src={article.imageUrl || 'https://via.placeholder.com/600'} alt={article.title} />
-      
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <img
+          src={API_BASE_URL + "Image/" + article.thumbnailId + "/Content"}
+          alt={article.title}
+          style={{ maxHeight: '100px', width: 'auto' }} // Adjust dimensions as needed
+        />
+        <h1 style={{ marginLeft: '1rem' }}>{article.title}</h1>
+      </div>
+
       {/* Render content as markdown using ReactMarkdown */}
-      <ReactMarkdown>{article.content}</ReactMarkdown>
-      
+      <ReactMarkdown className="markdown-body">{article.content}</ReactMarkdown>
+
       <div className="meta">
         <span>By {article.publisherName}</span> | <span>{new Date(article.dateCreated).toLocaleDateString()}</span>
       </div>
-      
+
       <div className="tags">
-        {article.tags.split(',').map((tag) => (
+        {/* Iterate over tags array directly */}
+        {article.tags.map((tag) => (
           <span key={tag} className="tag">
-            {tag.trim()}
+            {tag}
           </span>
         ))}
       </div>

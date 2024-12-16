@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios';
 import { AuthService } from './AuthService'
 
 // Create an axios instance with base configuration
-const API_BASE_URL = 'http://localhost:8081/api/';
+export const API_BASE_URL = 'http://localhost:8081/api/';
 
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,

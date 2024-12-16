@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../axiosConfig';
+import api, {API_BASE_URL} from '../axiosConfig';
 import './NewsPage.scss';
 
 // Define interface for blog post
@@ -8,7 +8,7 @@ interface BlogPost {
   id: string;
   title: string;
   content: string;
-  imageUrl: string; // Add imageUrl property
+  thumbnailId: string; // Add imageUrl property
   tags: string;
   publisherName: string;
   dateCreated: string;
@@ -57,7 +57,7 @@ const NewsPage: React.FC = () => {
               className="blog-post"
               onClick={() => handlePostClick(post.id)}
             >
-              <img src={post.imageUrl || 'https://via.placeholder.com/300'} alt={post.title} />
+              <img src={API_BASE_URL + "Image/" + post.thumbnailId + "/Content"} alt={post.title} />
               <h2>{post.title}</h2>
               <p>{post.content.substring(0, 100)}...</p>
             </div>
